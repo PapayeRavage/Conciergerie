@@ -77,9 +77,7 @@
                         <td>$city</td><br>
                     </tr>";
             }
-            echo "</table>
-                <h2>Commandes :</h2>
-                <table>";
+            echo "</table><h2>Commandes :</h2><table>";
             $lien = "SELECT id_order,date_order,status,price,id_delivery FROM client_order WHERE id_customer=$recherche;";
             $resultg = $Connect->query ($lien);
             while($row = mysqli_fetch_assoc($resultg)){
@@ -89,21 +87,18 @@
                 $price = $row['price'];
                 $id_delivery = $row['id_delivery'];
                 echo "<tr>
-                        <td>$id_order</td>
-                        <td>$date_order</td>
-                        <td>$status</td>
-                        <td>$price</td>
+                        <td>n°$id_order</td>
+                        <td>Date de commande :$date_order</td>
+                        <td>etat : $status</td>
+                        <td>prix : $price €</td>
                     ";
-                $lien = "SELECT dispatch_date,reception_date,note,id_address FROM delivery WHERE id_delivery=$id_delivery;";
+                $lien = "SELECT id_address FROM delivery WHERE id_delivery=$id_delivery;";
                 $resulth = $Connect->query ($lien);
                 $row2 = mysqli_fetch_assoc($resulth);
                 if($row2!=NULL){
-                    $dispatch_date = $row2['dispatch_date'];
-                    $reception_date = $row2['reception_date'];
-                    $note = $row2['note'];
-                    $id_address = $row2['id_address'];
+                    $id_address2 = $row2['id_address'];
                 }
-                $lien = "SELECT street_num,street_name,postal_code,city FROM address WHERE id_address=$id_address;";
+                $lien = "SELECT street_num,street_name,postal_code,city FROM address WHERE id_address=$id_address2;";
                 $resulti = $Connect->query ($lien);
                 $row3 = mysqli_fetch_assoc($resulti);
                 if($row3!=NULL){
@@ -115,7 +110,7 @@
                 }
                 echo "<td><button onclick=location.href='./order.php?id=$id_order'>details</button></td></tr>";
             }
-            echo "</table>";
+            echo "</table><button onclick=location.href='./neworder.php?id'>Nouvelle Commande</button>";
             mysqli_close ($Connect);
         ?>
     </body>

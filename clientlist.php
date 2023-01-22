@@ -42,5 +42,6 @@
                 mysqli_close ($Connect);
             ?>
         </table>
+        <button onclick=location.href='./newcustomer.php'>nouveau client</button>
     </body>
 </html>
