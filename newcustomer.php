@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Your Title Here</title>
+        <title>Nouveau client</title>
         <?php
 			include("utilities.php");
         ?>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h1>

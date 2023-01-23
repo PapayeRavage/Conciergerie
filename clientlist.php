@@ -5,6 +5,7 @@
         <?php
 			include("utilities.php");
 		?>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h1>
