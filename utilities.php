@@ -1,6 +1,10 @@
 <?php
     function fconnect(){
-        return mysqli_connect ("localhost", "root", "", "conciergerie");
+        $address="localhost";
+        $username="root";
+        $password="";
+        $database="conciergerie";
+        return mysqli_connect ($address, $username, $password, $database);
     };
     function deleteaddress($id) {
         $lien = "DELETE FROM address WHERE id_address = $id;";
